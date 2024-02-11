@@ -14,6 +14,8 @@ The original version of DFRobot uses Python serial (_UART_) and Python SMBus (_I
 - USB cable (_for connection between ESP32 and sensor_)
 - latest [VCP](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) driver installed
 
+![RGB_LED_button.jpg](img/RGB_LED_button.jpg)
+
 ## Installation
 
 Clone this repository to your local computer.
