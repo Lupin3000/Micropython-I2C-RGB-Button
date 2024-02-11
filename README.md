@@ -61,7 +61,7 @@ $ rshell -p /dev/cu.usbserial-0001
 /YOUR/LOCAL/PATH> repl
 ```
 
-Now press the keys `CTRL` + `d` on your local device, to trigger the soft-reset of the ESP32. If there are no errors, you should see the string "Start hand gestures:" in the terminal after a very short time.
+Now press the keys `CTRL` + `d` on your local device, to trigger the soft-reset of the ESP32. If there are no errors, you should see the following output in the terminal after a very short time.
 
 ```python
 Entering REPL. Use Control-X to exit.
