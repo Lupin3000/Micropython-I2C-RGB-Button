@@ -81,7 +81,7 @@ class DFRobot_RGB_Button_I2C:
         """
         rgb_buf = [0] * 3
 
-        if 0 <= int(r) <= 255 and 0 <= int(g) <= 255 and 0 <= int():
+        if 0 <= int(r) <= 255 and 0 <= int(g) <= 255 and 0 <= int(b) <= 255:
             rgb_buf[0] = int(r)
             rgb_buf[1] = int(g)
             rgb_buf[2] = int(b)
