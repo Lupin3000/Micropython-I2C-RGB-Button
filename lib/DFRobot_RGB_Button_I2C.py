@@ -3,16 +3,17 @@ from machine import I2C, Pin
 
 
 BUTTON_DEFAULT_I2C_ADDR = const(0x2A)
-BUTTON_PART_ID = const(0x43DF)
-BUTTON_PID_MSB_REG = const(0x09)
-BUTTON_COLOR_REG = const(0x01)
-BUTTON_BUTTON_SIGNAL_REG = const(0x04)
 
 
 class DFRobot_RGB_Button_I2C:
     """
     MicroPython class for communication with the RGB LED button from DFRobot via I2C
     """
+
+    BUTTON_PART_ID = const(0x43DF)
+    BUTTON_PID_MSB_REG = const(0x09)
+    BUTTON_COLOR_REG = const(0x01)
+    BUTTON_BUTTON_SIGNAL_REG = const(0x04)
 
     def __init__(self, sda, scl, i2c_addr=BUTTON_DEFAULT_I2C_ADDR, i2c_bus=0):
         """
@@ -64,9 +65,9 @@ class DFRobot_RGB_Button_I2C:
         Initialise the button
         :return: bool
         """
-        chip_id = self._read_reg(BUTTON_PID_MSB_REG, 2)
+        chip_id = self._read_reg(self.BUTTON_PID_MSB_REG, 2)
 
-        if BUTTON_PART_ID != ((chip_id[0] << 8) | chip_id[1]):
+        if self.BUTTON_PART_ID != ((chip_id[0] << 8) | chip_id[1]):
             return False
         else:
             return True
@@ -86,11 +87,11 @@ class DFRobot_RGB_Button_I2C:
             rgb_buf[1] = int(g)
             rgb_buf[2] = int(b)
 
-        self._write_reg(BUTTON_COLOR_REG, rgb_buf)
+        self._write_reg(self.BUTTON_COLOR_REG, rgb_buf)
 
     def get_button_status(self) -> bool:
         """
         Returns button status (True if pressed, False if not pressed)
         :return: bool
         """
-        return bool(self._read_reg(BUTTON_BUTTON_SIGNAL_REG, 1)[0])
+        return bool(self._read_reg(self.BUTTON_BUTTON_SIGNAL_REG, 1)[0])
